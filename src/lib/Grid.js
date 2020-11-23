@@ -19,7 +19,13 @@ class Grid {
       const row = [];
 
       for (let j = 0; j < this.width; j++) {
-        row.push(new Cell(j, i, this.cellClosedChance));
+        let cellClosedChance = this.cellClosedChance;
+
+        if ((i === 0 && j === 0) || ((i === this.height - 1) && (j === this.width - 1))) {
+          cellClosedChance = 0;
+        }
+
+        row.push(new Cell(j, i, cellClosedChance));
       }
 
       this.cells.push(row);

@@ -4,7 +4,7 @@ module.exports = {
   gridHeight: 80,
   gridWidth: 100,
 
-  cellClosedChance: 0.3,
+  cellClosedChance: 0.25,
   cellHeight: 10,
   cellWidth: 10,
   cellOpenColour: 'white',

@@ -12,7 +12,6 @@ class AStar {
       this.pathColour = pathColour;
 
       const start = this.grid.cells[0][0];
-      start.open = true;
 
       this.current = start;
       this.openSet = [start];
@@ -78,15 +77,7 @@ class AStar {
 
       // find next most fittest cell
 
-      let winner = 0;
-
-      for (let i = 0; i < this.openSet.length; i++) {
-        if (this.openSet[i].fitness < this.openSet[winner].fitness) {
-          winner = i;
-        }
-      }
-
-      this.current = this.openSet[winner];
+      this.current = this.openSet.reduce((previous, current) => previous.fitness < current.fitness ? previous : current);
 
       // have we reached the end?
 
@@ -125,7 +116,7 @@ class AStar {
           this.openSet.push(neighbour);
         }
 
-        // calculate estimated cost to end
+        // recalculate cost to end
 
         const distx = neighbour.x - this.end.x;
         const disty = neighbour.y - this.end.y;
