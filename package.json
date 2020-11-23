@@ -1,0 +1,32 @@
+{
+    "name": "webpack-starter-basic",
+    "version": "2.0.0",
+    "description": "A simple and reliable webpack starter kit for your web adventures needs.",
+    "main": "index.js",
+    "scripts": {
+        "start": "webpack-dev-server --config webpack.dev.js --mode development",
+        "build": "webpack --config webpack.prod.js --mode production",
+        "preview": "npm run build && http-server dist"
+    },
+    "dependencies": {
+        "normalize.css": "^8.0.0"
+    },
+    "devDependencies": {
+        "@fullhuman/postcss-purgecss": "^1.1.0",
+        "ajv": "^6.3.0",
+        "babel-core": "^6.26.3",
+        "babel-loader": "^7.1.4",
+        "babel-preset-env": "^1.7.0",
+        "clean-webpack-plugin": "^0.1.19",
+        "file-loader": "^1.1.11",
+        "html-webpack-plugin": "^3.1.0",
+        "http-server": "^0.12.3",
+        "inquirer": "^5.1.0",
+        "rimraf": "^2.6.2",
+        "source-map-loader": "^0.2.3",
+        "url-loader": "^1.0.1",
+        "webpack": "^4.20.2",
+        "webpack-cli": "^3.1.1",
+        "webpack-dev-server": "^3.1.11"
+    }
+}
