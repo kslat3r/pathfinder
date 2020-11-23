@@ -45,7 +45,7 @@ class Events {
   }
 
   reset() {
-    this.algorithms.forEach(algorithm => algorithm.stop());
+    this.algorithms.forEach(algorithm => algorithm.stop() && algorithm.reset());
 
     this.grid.reset();
   }
