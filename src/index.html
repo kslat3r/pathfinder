@@ -10,9 +10,42 @@
       body {
         margin: 0;
       }
+
+      canvas {
+        border: 1px solid #000;
+        margin: 10px;
+        float: left;
+      }
+
+      #controls {
+        border: 1px solid #000;
+        margin: 10px;
+        width: 180px;
+        float: left;
+        padding: 10px;
+        padding-bottom: 0;
+      }
+
+      .control {
+        margin-bottom: 10px;
+      }
     </style>
   </head>
   <body>
     <canvas id="canvas"></canvas>
+    <div id="controls">
+      <div class="control">
+        <label for="algorithm">Algorithm: </label>
+        <select id="algorithm">
+          <option value="AStarAlgorithm">A*</option>
+          <option value="AStarReduceAlgorithm">A* (reduce)</option>
+        </select>
+      </div>
+      <div class="control">
+        <input id="start" type="button" value="Start" />
+        <input id="resume" type="button" value="Resume" />
+        <input id="stop" type="button" value="Stop" />
+      </div>
+    </div>
   </body>
 </html>

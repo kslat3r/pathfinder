@@ -1,6 +1,6 @@
 const AStarAlgorithm = require('./AStarAlgorithm');
 
-class AStar extends AStarAlgorithm {
+class AStarReduceAlgorithm extends AStarAlgorithm {
   calculate () {
     // are there available options?
 
@@ -70,4 +70,4 @@ class AStar extends AStarAlgorithm {
   }
 }
 
-module.exports = AStar;
+module.exports = AStarReduceAlgorithm;

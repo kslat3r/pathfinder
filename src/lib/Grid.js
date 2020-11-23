@@ -13,6 +13,10 @@ class Grid {
     this.cellOpenColour = cellOpenColour;
     this.cellClosedColour = cellClosedColour;
 
+    this.setup();
+  }
+
+  setup () {
     this.cells = [];
 
     for (let i = 0; i < this.height; i++) {
@@ -39,6 +43,10 @@ class Grid {
         this.canvas.context.fillRect(cell.x * this.cellWidth, cell.y * this.cellHeight, this.cellWidth, this.cellHeight);
       }
     }
+  }
+
+  reset () {
+    this.setup();
   }
 }
 

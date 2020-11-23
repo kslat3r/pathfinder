@@ -1,6 +1,6 @@
 const Algorithm = require('./Algorithm');
 
-class AStar extends Algorithm {
+class AStarAlgorithm extends Algorithm {
   setup () {
     const start = this.grid.cells[0][0];
 
@@ -24,6 +24,7 @@ class AStar extends Algorithm {
         cell.costFromStart = 0;
         cell.costToEnd = 0;
         cell.neighbours = [];
+        cell.previous = null;
 
         // above
 
@@ -160,4 +161,4 @@ class AStar extends Algorithm {
   }
 }
 
-module.exports = AStar;
+module.exports = AStarAlgorithm;

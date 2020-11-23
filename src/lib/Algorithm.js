@@ -28,6 +28,12 @@ class Algorithm {
   stop () {
     clearInterval(this.interval);
   }
+
+  reset () {
+    if (this.setup !== undefined) {
+      this.setup();
+    }
+  }
 }
 
 module.exports = Algorithm;
