@@ -1,4 +1,4 @@
-const Cell = require('./cell');
+const Cell = require('./Cell');
 
 class Grid {
   constructor(canvas, height, width, cellHeight, cellWidth, cellClosedChance, cellOpenColour, cellClosedColour) {
