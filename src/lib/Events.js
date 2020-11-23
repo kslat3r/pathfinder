@@ -26,9 +26,11 @@ class Events {
   }
 
   start () {
-    this.algorithm = this.algorithms.find(algorithm => algorithm.constructor.name === document.getElementById('algorithm').value);
+    this.algorithms.forEach(algorithm => algorithm.reset());
 
     this.grid.draw();
+
+    this.algorithm = this.algorithms.find(algorithm => algorithm.constructor.name === document.getElementById('algorithm').value);
     this.algorithm.start();
   }
 
