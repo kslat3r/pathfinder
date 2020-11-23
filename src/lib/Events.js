@@ -26,7 +26,7 @@ class Events {
   }
 
   start () {
-    this.algorithms.forEach(algorithm => algorithm.reset());
+    this.algorithms.forEach(algorithm => algorithm.stop() && algorithm.reset());
 
     this.grid.draw();
 
@@ -45,8 +45,9 @@ class Events {
   }
 
   reset() {
+    this.algorithms.forEach(algorithm => algorithm.stop());
+
     this.grid.reset();
-    this.algorithms.forEach(algorithm => algorithm.reset());
   }
 }
 
