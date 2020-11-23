@@ -1,8 +1,15 @@
 class AStar {
-    constructor(canvas, grid, timeout) {
+    constructor(canvas, grid, timeout, cellHeight, cellWidth, setOpenColour, setClosedColour, pathColour) {
       this.canvas = canvas;
       this.grid = grid;
       this.timeout = timeout;
+
+      this.cellHeight = cellHeight;
+      this.cellWidth = cellWidth;
+
+      this.setOpenColour = setOpenColour;
+      this.setClosedColour = setClosedColour;
+      this.pathColour = pathColour;
 
       const start = this.grid.cells[0][0];
       start.open = true;
@@ -140,15 +147,15 @@ class AStar {
       // draw closed cells
 
       for (const cell of this.closedSet) {
-        this.canvas.context.fillStyle = "rgba(255, 0, 0, 1)";
-        this.canvas.context.fillRect(cell.x * 10, cell.y * 10, 10, 10);
+        this.canvas.context.fillStyle = this.setClosedColour;
+        this.canvas.context.fillRect(cell.x * this.cellWidth, cell.y * this.cellHeight, this.cellWidth, this.cellHeight);
       }
 
       // draw open cells
 
       for (const cell of this.openSet) {
-        this.canvas.context.fillStyle = "rgba(0, 255, 0, 1)";
-        this.canvas.context.fillRect(cell.x * 10, cell.y * 10, 10, 10);
+        this.canvas.context.fillStyle = this.setOpenColour;
+        this.canvas.context.fillRect(cell.x * this.cellWidth, cell.y * this.cellHeight, this.cellWidth, this.cellHeight);
       }
 
       // draw path
@@ -162,8 +169,8 @@ class AStar {
       }
 
       for (const cell of path) {
-        this.canvas.context.fillStyle = "rgba(0, 0, 255, 1)";
-        this.canvas.context.fillRect(cell.x * 10, cell.y * 10, 10, 10);
+        this.canvas.context.fillStyle = this.pathColour;
+        this.canvas.context.fillRect(cell.x * this.cellWidth, cell.y * this.cellHeight, this.cellWidth, this.cellHeight);
       }
     }
   }

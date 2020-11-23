@@ -8,5 +8,9 @@ module.exports = {
   cellHeight: 10,
   cellWidth: 10,
   cellOpenColour: 'white',
-  cellClosedColour: 'black'
+  cellClosedColour: 'black',
+
+  setOpenColour: 'rgba(0, 255, 0, 1)',
+  setClosedColour: 'rgba(255, 0, 0, 1)',
+  pathColour: 'rgba(0, 0, 255, 1)'
 };
