@@ -35,5 +35,8 @@ module.exports = {
             inject: 'body',
         }),
         new CleanWebpackPlugin(buildPath),
-    ]
+    ],
+    optimization: {
+      minimize: false
+    }
 };
