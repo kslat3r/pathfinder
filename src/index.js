@@ -1,11 +1,12 @@
 const config = require('./config');
+
 const Canvas = require('./lib/Canvas');
 const Grid = require('./lib/Grid');
-const AStar = require('./lib/AStar');
+const Algorithm = require('./lib/AStarAlgorithm');
 
-const canvas = new Canvas('canvas');
-const grid = new Grid(canvas, config.gridHeight, config.gridWidth, config.cellHeight, config.cellWidth, config.cellClosedChance, config.cellOpenColour, config.cellClosedColour);
-const astar = new AStar(canvas, grid, config.timeout, config.cellHeight, config.cellWidth, config.setOpenColour, config.setClosedColour, config.pathColour);
+const canvas = new Canvas('canvas', config.gridHeight, config.gridWidth, config.cellHeight, config.cellWidth);
+const grid = new Grid(canvas, config.gridHeight, config.gridWidth, config.cellHeight, config.cellWidth, config.closedChance, config.openColour, config.closedColour);
+const algorithm = new Algorithm(canvas, grid, config.timeout, config.cellHeight, config.cellWidth, config.validColour, config.invalidColour, config.pathColour);
 
 grid.draw();
-astar.init();
+algorithm.start();
