@@ -70,7 +70,7 @@ class AStar {
       // are there available options?
 
       if (this.openSet.length === 0) {
-        console.log('No solution');
+        alert('No solution');
         clearTimeout(this.interval);
 
         return;
@@ -91,7 +91,6 @@ class AStar {
       // have we reached the end?
 
       if (this.current === this.end) {
-        console.log('Solution found');
         clearTimeout(this.interval);
 
         return;
