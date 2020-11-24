@@ -3,51 +3,37 @@ class Events {
     this.canvas = canvas;
     this.grid = grid;
     this.algorithms = algorithms;
-    this.algorithm = null;
+    this.algorithm = algorithms[0];
+
+    this.grid.draw();
+    this.algorithm.start();
 
     this.bind();
   }
 
   bind () {
     document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('start').addEventListener('click', () => {
+      document.querySelector('#algorithm').addEventListener('change', () => {
         this.reset();
         this.start();
-      });
-
-      document.getElementById('resume').addEventListener('click', () => {
-        this.resume();
-      });
-
-      document.getElementById('stop').addEventListener('click', () => {
-        this.stop();
       });
     });
   }
 
-  start () {
-    this.algorithms.forEach(algorithm => algorithm.stop() && algorithm.reset());
+  reset() {
+    this.grid.reset();
 
+    this.algorithms.forEach(algorithm => {
+      algorithm.stop();
+      algorithm.reset()
+    });
+  }
+
+  start () {
     this.grid.draw();
 
     this.algorithm = this.algorithms.find(algorithm => algorithm.constructor.name === document.getElementById('algorithm').value);
     this.algorithm.start();
-  }
-
-  resume () {
-    if (this.algorithm) {
-      this.algorithm.start();
-    }
-  }
-
-  stop () {
-    this.algorithm.stop();
-  }
-
-  reset() {
-    this.algorithms.forEach(algorithm => algorithm.stop() && algorithm.reset());
-
-    this.grid.reset();
   }
 }
 
